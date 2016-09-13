@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Marcela</title>
+
+	
+	<!-- include the jQuery and jQuery UI scripts -->
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+	<script type="text/javascript">
+
+
+
+		function whenPageLoadsDoThis() {
+
+
+			
+			var secondString ="My name is Marcela and here's what I love"
+			window.document.body.innerHTML;
+
+			var v = document.getElementsByTagName("video");
+
+			for (var i=0; i < v.length; i++){
+				(function(){
+					v[i].addEventListener('mouseover', function(e){
+						e.target.play();
+					});
+					v[i].addEventListener('mouseleave', function(e){
+
+						//e.target.pause();
+						e.target.load();
+
+					})	
+				})()
+			}
+			
+
+		}
+
+
+
+		window.addEventListener('load', whenPageLoadsDoThis);
+
+
+
+	</script>
+
+</head>
+<body>
+
+
+
+	<div id="intro">
+		Hi, I'm Marcela and here's what I love:
+	</div>
+
+	<ul class="vidlist">
+
+
+		<li class="vid">
+
+			<video  poster="horse.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+
+				<source src="fs2.mp4" type="video/mp4">
+
+				</video>
+
+
+			</li>
+			<li class="vid">
+				<video  poster="ocean.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+
+
+					<source src="travel.mp4" type="video/mp4">
+						<div id="fs">Horseback Riding</div>
+
+					</video>
+
+				</li>
+				<li class="vid">
+					<video  poster="travel.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+						<source src="hike.mp4" type="video/mp4">
+
+						</video>
+						
+					</li>
+					<li class="vid">
+						<video  poster="sailing.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+													<source src="sailing.mp4" type="video/mp4">
+
+						</video>
+					
+					</li>
+					
+
+					<li class="vid">
+						<video  poster="dog.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+													<source src="carmie.mp4" type="video/mp4">
+
+						</video>
+					</li>
+
+					<li class="vid">
+						<video  poster="moving.jpg" style="background:transparent no-repeat ;background-size:100% preload="auto" onmouseout="this.controls=false"">
+													<source src="shoes.mp4" type="video/mp4">
+
+						</video>
+					</li>
+
+
+
+
+
+				</ul>
+
+
+
+
+			</body>
+
+			</html>

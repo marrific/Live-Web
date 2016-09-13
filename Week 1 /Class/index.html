@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A fun page</title>
+		<script type="text/javascript">
+
+			var divTwo;
+			var myVideo;
+
+			//var foo;
+			
+			var foo = "something";
+			console.log(foo);
+;			if (typeof foo == "string") {
+				console.log("it's a string");
+				//alert("just for fun");
+			}
+			foo = 1;
+			console.log(typeof foo);
+
+			/*
+			document.addEventListener("mousedown", function() {
+				alert(i);
+			});
+			*/
+
+			var i = 0;
+
+			var bFunction = function() {
+				//alert("bFunction");
+			};
+			bFunction();
+
+			aFunction();
+
+			function aFunction() {
+				//alert(i);
+				i++;
+			}
+
+
+			/*
+			while(true) {
+				i++;
+				//console.log(i);
+			}
+			*/
+
+			// window implied
+			//alert();
+			//window.alert();
+
+			console.log(window.document);
+			//window.document.body.innerHTML = "nothing";
+
+			function whenPageLoadsDoThis() {
+				window.document.body.innerHTML += "nothing";
+
+				divTwo = window.document.getElementById("two");
+				divTwo.innerHTML = "Ha";
+				divTwo.style.fontSize = "100px";
+
+				divTwo.addEventListener('click',mouseWasClicked);
+
+				myVideo = document.getElementById("avideo");
+				myVideo.addEventListener('timeupdate', 
+					function() {
+						console.log(myVideo.currentTime);
+
+						if (myVideo.currentTime > 10) {
+							divTwo.innerHTML = "Cow";
+						} 
+
+						if (myVideo.currentTime > 15) {
+							divTwo.innerHTML = "Hungry";
+						}
+
+					});
+				myVideo.play();
+
+			}
+
+			function mouseWasClicked() {
+				divTwo.style.color = "pink";
+
+			}
+
+			window.addEventListener('load', whenPageLoadsDoThis);
+			//window.onLoad(whenPageLoadsDoThis);
+
+		</script>
+	</head>
+	<body>
+		Content that shows up on page
+
+		<div id="one">Here is a division of content</div>
+		<div id="two">Here is another section</div>
+
+		<video id="avideo" width="720" height="480" src="http://itp.nyu.edu/~sve204/liveweb_fall2016/video.mp4" />
+
+
+
+		<script type="text/javascript">
+		//window.document.body.innerHTML = window.document.body.innerHTML + "nothing";
+
+			//window.document.body.innerHTML += "nothing";
+		</script>
+
+	</body>
+</html>
