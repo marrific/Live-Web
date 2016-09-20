@@ -1,0 +1,142 @@
+<html>
+<head>
+
+	<style>
+
+	</style>
+
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+		
+		var socket = io();
+
+		socket.on('connect', function() {
+			console.log("Connected");
+		});
+
+			// Receive from any event
+			socket.on('chatmessage', function (data) {
+				console.log(data);
+				document.getElementById('messages').innerHTML =  data.user + ": " + data.msg + "<br />" + document.getElementById('messages').innerHTML;
+			});
+			
+			var sendmessage = function(message) {
+				//console.log("chatmessage: " + message);
+				socket.emit('chatmessage', message);
+			};
+
+
+		</script>	
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="row">
+				<h1>Hello, Let's chat</h1>
+			</div>
+
+
+			<!-- <div class="row">
+				<button class="btn lg ghost">Ghost</button>
+			</div> -->
+
+
+<div class="talk-bubble">
+  <div class="talktext">
+    <div id="messages">
+			</div>
+  </div>
+</div>
+
+
+			
+
+			
+			<div class="footer"><!-- <div id="colorful">  </div> -->
+			<input id="myInput" type="text" id="message" name="message">
+
+			<input id = "submitBtn" type="submit" value="submit">
+			</div>
+		</body>
+
+
+		<script>
+
+	// var g = "#"+((1<<24)*Math.random()|0).toString(16);
+	// console.log(g);
+
+	var userID = prompt("Please enter your name");
+
+	socket.emit( "getID" , userID);
+
+	var myBtn = document.getElementById("submitBtn");
+	myBtn.addEventListener("click",function(){
+
+		var myInput = document.getElementById("myInput");
+			//myInput.style.color = '#00FF00';
+			sendmessage(myInput.value);
+
+			
+			var posMessages = document.getElementById("messages");
+
+			// var posX =  Math.random() * 200;
+			// var posY =  Math.random() * 200;
+
+			// posMessages.style.transform = "translateX(" + posX + "px) translateY(" + posY +"px)";
+
+
+
+
+			var randomColor = Math.floor(Math.random()*16777215).toString(16);
+			// var randomColorTwo = Math.floor(Math.random()*16777215 - 4852).toString(16);
+
+			$("body").css({
+
+				backgroundColor: '#' + randomColor
+
+
+			});
+
+			$("#messages").css({'font-size': '150%' });  //'color': "#" + randomColor, 
+
+
+
+$(document).on('scroll', function(){
+    var scroller = $('#scroller');
+    var footer = $('#footer');
+    var scroll_bot = scroller.offset().top + scroller.height();
+    var footer_top = footer.offset().top;
+
+    alert(scroll_bot);
+    if(scroll_bot > footer_top){
+        scroller.addClass('classThatMakesBoxActRight');
+    }else{
+        scroller.removeClass('classThatMakesBoxActRight');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+
+</html>
